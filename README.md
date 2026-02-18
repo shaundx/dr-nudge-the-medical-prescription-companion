@@ -70,15 +70,24 @@ Go to http://localhost:3000
 ![RxNorm](https://img.shields.io/badge/RxNorm_API-005EB8?style=for-the-badge)
 
 
-<b>AI-Powered Prescription Reading:</b> GPT-4 Vision + Tesseract.js OCR fallback  
-<b>Verification UI:</b> Manual confirmation and correction of extracted medications  
-<b>Smart Nudge Generation:</b> AI-generated behavioral nudges with readability checking (Grade 8 target)  
-<b>Enhanced Drug Safety:</b> RxNorm + OpenFDA + food interactions + age-based warnings + dosage alerts  
-<b>Real-Time Sync:</b> Supabase Realtime subscriptions  
-<b>Responsive Design:</b> Mobile → Tablet → Desktop adaptive layout  
-<b>Accessibility:</b> Elderly mode, text-to-speech, large fonts  
-<b>Image Preprocessing:</b> Sharp library for contrast enhancement and optimization  
-<b>Plain Language Validation:</b> Flesch-Kincaid Grade Level checking  
+<b>AI-Powered Prescription Reading:</b> GPT-4 Vision + Tesseract.js OCR fallback
+
+<b>Verification UI:</b> Manual confirmation and correction of extracted medications
+
+<b>Smart Nudge Generation:</b> AI-generated behavioral nudges with readability checking (Grade 8 target)
+
+<b>Enhanced Drug Safety:</b> RxNorm + OpenFDA + food interactions + age-based warnings + dosage alerts
+
+<b>Real-Time Sync:</b> Supabase Realtime subscriptions
+
+<b>Responsive Design:</b> Mobile → Tablet → Desktop adaptive layout
+
+<b>Accessibility:</b> Elderly mode, text-to-speech, large fonts
+
+<b>Image Preprocessing:</b> Sharp library for contrast enhancement and optimization
+
+<b>Plain Language Validation:</b> Flesch-Kincaid Grade Level checking
+
 <b>Full CRUD:</b> Edit, update, and delete medications  
 
 ---
