@@ -1,0 +1,595 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DR. NUDGE — ADAPTIVE DESIGN SYSTEM
+   Mobile-first → Tablet → Desktop fluid scaling
+   ============================================================ */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  .onboarding-shell {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #fff;
+    width: 100vw;
+    padding: 0;
+    display: block;
+  }
+
+  .onboarding-scrollable {
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2rem;
+  }
+}
+
+  /* Desktop Sidebar */
+  .desktop-sidebar {
+    display: none;  /* Hidden by default on mobile */
+  }
+  @media (min-width: 1024px) {
+    .desktop-sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 270px;
+      min-width: 270px;
+      background: white;
+      border-right: 1px solid #f3f4f6;
+      padding: 2rem 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 30;
+      transition: width 0.3s ease, padding 0.3s ease;
+    }
+
+    .desktop-sidebar.sidebar-collapsed {
+      width: 80px;
+      min-width: 80px;
+      padding: 2rem 0.5rem;
+    }
+  }
+  @media (min-width: 1536px) {
+    .desktop-sidebar {
+      width: 300px;
+      min-width: 300px;
+      padding: 2rem 1.5rem;
+    }
+
+    .desktop-sidebar.sidebar-collapsed {
+      width: 80px;
+      min-width: 80px;
+      padding: 2rem 0.5rem;
+    }
+  }
+
+  .sidebar-brand {
+    @apply flex items-center gap-3 px-3 py-2 mb-8;
+  }
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium transition-all duration-200 cursor-pointer mb-1 w-full text-left;
+  }
+  .sidebar-nav-item:hover { background: #f9fafb; }
+  .sidebar-nav-active {
+    @apply sidebar-nav-item bg-gray-900 text-white;
+  }
+  .sidebar-nav-active:hover { background: #1f2937; }
+
+  /* Main content area */
+  .main-content-area {
+    @apply flex-1 overflow-y-auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  @media (min-width: 1024px) {
+    .main-content-area {
+      background: #F7F7F5;
+      padding: 0;
+      margin-left: 270px; /* Account for sidebar width */
+      transition: margin-left 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .main-content-area.main-content-collapsed {
+      margin-left: 80px; /* Account for collapsed sidebar width */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 2rem;
+    }
+  }
+  @media (min-width: 1536px) {
+    .main-content-area {
+      margin-left: 300px; /* Account for wider sidebar */
+    }
+
+    .main-content-area.main-content-collapsed {
+      margin-left: 80px; /* Same width for collapsed on all breakpoints */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 2rem;
+    }
+  }
+
+  /* Page content — adapts padding & max-width per breakpoint */
+  .page-content {
+    @apply px-4 pt-5 pb-28;
+    max-width: 100%;
+  }
+  @media (min-width: 640px) {
+    .page-content {
+      @apply px-6;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media (min-width: 768px) {
+    .page-content {
+      @apply px-8;
+      max-width: 768px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media (min-width: 1024px) {
+    .page-content {
+      @apply px-8 pb-10;
+      max-width: 100%;
+      margin: 0;
+      width: 100%;
+    }
+
+    .main-content-area.main-content-collapsed .page-content {
+      max-width: 900px;
+      width: 100%;
+      margin: 0;
+    }
+  }
+  @media (min-width: 1280px) {
+    .page-content {
+      @apply px-10;
+      max-width: 1100px;
+    }
+
+    .main-content-area.main-content-collapsed .page-content {
+      max-width: 1100px;
+    }
+  }
+  @media (min-width: 1536px) {
+    .page-content {
+      max-width: 1300px;
+    }
+
+    .main-content-area.main-content-collapsed .page-content {
+      max-width: 1100px;
+    }
+  }
+
+  /* Desktop-aware page header */
+  .page-header {
+    @apply px-4 pt-6 pb-4 bg-white sticky top-0 z-20;
+  }
+  @media (min-width: 1024px) {
+    .page-header {
+      @apply px-8 bg-transparent;
+    }
+  }
+
+  /* ──────── BOTTOM NAV (mobile/tablet only) ──────── */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-40;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (min-width: 768px) {
+    .bottom-nav {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      max-width: 600px;
+      border-radius: 1.5rem 1.5rem 0 0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    }
+  }
+  @media (min-width: 1024px) {
+    .bottom-nav {
+      display: none !important;  /* Hidden on desktop — sidebar takes over */
+    }
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center justify-center gap-0.5 py-2 px-3 rounded-2xl transition-all duration-200;
+  }
+  .nav-item-active { @apply text-gray-900; }
+  .nav-item-inactive { @apply text-gray-400; }
+
+  /* ──────── MOBILE HEADER (ribbon for Dr. Nudge) ──────── */
+  .mobile-header {
+    display: block;
+    background: white;
+  }
+  @media (min-width: 1024px) {
+    .mobile-header {
+      display: none !important;  /* Hidden on desktop — sidebar shows branding */
+    }
+  }
+
+  /* ──────── RESPONSIVE GRID HELPERS ──────── */
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 gap-3;
+  }
+  @media (min-width: 640px) { .responsive-grid-2 { @apply grid-cols-2; } }
+
+  .responsive-grid-3 {
+    @apply grid grid-cols-1 gap-3;
+  }
+  @media (min-width: 640px) { .responsive-grid-3 { @apply grid-cols-2; } }
+  @media (min-width: 1024px) { .responsive-grid-3 { @apply grid-cols-3; } }
+
+  .responsive-grid-4 {
+    @apply grid grid-cols-2 gap-3;
+  }
+  @media (min-width: 768px)  { .responsive-grid-4 { @apply grid-cols-3; } }
+  @media (min-width: 1280px) { .responsive-grid-4 { @apply grid-cols-4; } }
+
+  /* ──────── CARDS ──────── */
+  .card {
+    @apply bg-white rounded-3xl border border-gray-100 overflow-hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card-elevated {
+    @apply bg-white rounded-3xl border border-gray-100 overflow-hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .med-card {
+    @apply rounded-3xl p-5 border-2 transition-all duration-200 active:scale-[0.98] cursor-pointer;
+  }
+  @media (min-width: 1024px) {
+    .med-card { @apply hover:shadow-lg hover:-translate-y-0.5; }
+    .med-card:active { transform: scale(1); }
+  }
+  .med-card-pending { @apply med-card bg-white border-gray-100; }
+  .med-card-taken { @apply med-card bg-green-50/60 border-green-200; }
+  .med-card-alert { @apply med-card bg-red-50/60 border-red-200; }
+
+  /* ──────── SAFETY BADGES ──────── */
+  .safety-green {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold bg-green-50 text-green-700 border border-green-200;
+  }
+  .safety-yellow {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold bg-amber-50 text-amber-700 border border-amber-200;
+  }
+  .safety-red {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold bg-red-50 text-red-700 border border-red-200;
+  }
+
+  /* ──────── BUTTONS ──────── */
+  .btn-primary {
+    @apply w-full py-4 px-6 bg-gray-900 text-white text-base font-semibold rounded-2xl
+           transition-all duration-200 active:scale-[0.97] active:bg-gray-800
+           flex items-center justify-center gap-2;
+  }
+  @media (min-width: 1024px) {
+    .btn-primary { @apply hover:bg-gray-800 hover:shadow-md; }
+    .btn-primary:active { transform: scale(1); }
+  }
+  .btn-secondary {
+    @apply w-full py-4 px-6 bg-white text-gray-900 text-base font-semibold rounded-2xl border-2 border-gray-200
+           transition-all duration-200 active:scale-[0.97] active:bg-gray-50
+           flex items-center justify-center gap-2;
+  }
+  .btn-success {
+    @apply w-full py-4 px-6 bg-green-600 text-white text-base font-semibold rounded-2xl
+           transition-all duration-200 active:scale-[0.97] active:bg-green-700
+           flex items-center justify-center gap-2;
+  }
+  .btn-danger {
+    @apply w-full py-4 px-6 bg-red-600 text-white text-base font-semibold rounded-2xl
+           transition-all duration-200 active:scale-[0.97] active:bg-red-700
+           flex items-center justify-center gap-2;
+  }
+  .btn-ghost {
+    @apply py-3 px-4 text-gray-500 text-sm font-medium rounded-xl
+           transition-all active:bg-gray-100 flex items-center justify-center gap-2;
+  }
+
+  /* ──────── SPECIAL COMPONENTS ──────── */
+  .take-pill-hero {
+    @apply relative w-full py-5 rounded-3xl text-xl font-bold
+           flex items-center justify-center gap-3 transition-all duration-300;
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.3);
+  }
+  .take-pill-hero:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+  }
+
+  .streak-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-bold;
+    background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%);
+    color: #B45309;
+    border: 1px solid #FCD34D;
+  }
+
+  .nudge-card {
+    @apply rounded-3xl p-6 border;
+    background: linear-gradient(135deg, #FFFBEB 0%, #FFF8E1 50%, #FEF3C7 100%);
+    border-color: #F5DEB3;
+  }
+
+  .alert-red { @apply rounded-2xl p-4 bg-red-50 border-2 border-red-200 flex items-start gap-3; }
+  .alert-yellow { @apply rounded-2xl p-4 bg-amber-50 border-2 border-amber-200 flex items-start gap-3; }
+  .alert-green { @apply rounded-2xl p-4 bg-green-50 border-2 border-green-200 flex items-start gap-3; }
+
+  .onboard-option {
+    @apply flex items-center gap-3 p-4 rounded-2xl border-2 border-gray-200 bg-white
+           transition-all duration-200 cursor-pointer active:scale-[0.98] text-left w-full;
+  }
+  .onboard-option-selected {
+    @apply flex items-center gap-3 p-4 rounded-2xl border-2 border-gray-900 bg-gray-50
+           transition-all duration-200 cursor-pointer active:scale-[0.98] text-left w-full;
+  }
+
+  .lang-btn {
+    @apply py-4 px-5 rounded-2xl border-2 text-center font-semibold transition-all duration-200 cursor-pointer active:scale-[0.97];
+  }
+  .lang-btn-active { @apply lang-btn bg-gray-900 text-white border-gray-900; }
+  .lang-btn-inactive { @apply lang-btn bg-white text-gray-700 border-gray-200; }
+
+  .scan-area {
+    @apply rounded-3xl border-4 border-dashed border-gray-300 bg-gray-50
+           flex flex-col items-center justify-center gap-4 p-8
+           transition-all duration-300 cursor-pointer;
+    min-height: 240px;
+  }
+  @media (min-width: 768px) {
+    .scan-area { min-height: 320px; }
+  }
+  .scan-area-active {
+    @apply rounded-3xl border-4 border-dashed border-gray-900 bg-gray-100
+           flex flex-col items-center justify-center gap-4 p-8
+           transition-all duration-300 cursor-pointer;
+    min-height: 240px;
+    }
+  /* Removed extra closing brace */
+
+/* ============================================================
+   ONBOARDING — Centered card on desktop
+   ============================================================ */
+/* Improved Onboarding Responsiveness */
+.onboarding-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .onboarding-shell {
+    background: #f3f4f6;
+    padding: 2rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/* Onboarding card: make content scrollable and smooth */
+
+.onboarding-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Make the scrollable area take all available space except for the fixed button */
+.onboarding-scrollable {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 96px; /* space for sticky button */
+}
+
+/* Sticky bottom button for onboarding */
+.onboarding-bottom-btn {
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+  padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Utility for scrollable onboarding content */
+.onboarding-scrollable {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 640px) {
+  .onboarding-card {
+    max-width: 480px;
+    min-height: 80vh;
+    padding: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .onboarding-card {
+    max-width: 540px;
+    min-height: 70vh;
+    padding: 0 2.5rem;
+  }
+}
+@media (min-width: 1536px) {
+  .onboarding-card {
+    max-width: 600px;
+  }
+}
+
+/* ============================================================
+   MODAL — wider on desktop
+   ============================================================ */
+.modal-sheet {
+  @apply w-full bg-white rounded-t-3xl overflow-hidden flex flex-col;
+  max-width: 100%;
+  max-height: 90vh;
+}
+@media (min-width: 768px) {
+  .modal-sheet {
+    max-width: 560px;
+    border-radius: 1.5rem;
+    max-height: 85vh;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .modal-sheet {
+    max-width: 640px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE SCALE — adjustable text and UI scaling
+   ============================================================ */
+.app-shell { 
+  font-size: 16px;
+}
+
+/* Scale 0.5x - Smaller text */
+.scale-0-5 .text-xs { font-size: 0.5rem; }
+.scale-0-5 .text-sm { font-size: 0.625rem; }
+.scale-0-5 .text-base { font-size: 0.75rem; }
+.scale-0-5 .text-lg { font-size: 0.875rem; }
+.scale-0-5 .text-xl { font-size: 1rem; }
+.scale-0-5 .text-2xl { font-size: 1.125rem; }
+.scale-0-5 .text-3xl { font-size: 1.25rem; }
+.scale-0-5 .text-4xl { font-size: 1.5rem; }
+.scale-0-5 button { min-height: 32px; padding: 0.375rem 0.75rem; }
+.scale-0-5 .med-card { padding: 0.75rem; }
+.scale-0-5 .p-3 { padding: 0.5rem; }
+.scale-0-5 .p-4 { padding: 0.625rem; }
+.scale-0-5 .p-5 { padding: 0.75rem; }
+.scale-0-5 .p-6 { padding: 0.875rem; }
+
+/* Scale 1x - Normal text (default) */
+.scale-1 { font-size: 16px; }
+
+/* Scale 1.5x - Larger text */
+.scale-1-5 .text-xs { font-size: 0.875rem; }
+.scale-1-5 .text-sm { font-size: 1rem; }
+.scale-1-5 .text-base { font-size: 1.125rem; }
+.scale-1-5 .text-lg { font-size: 1.25rem; }
+.scale-1-5 .text-xl { font-size: 1.375rem; }
+.scale-1-5 .text-2xl { font-size: 1.5rem; }
+.scale-1-5 .text-3xl { font-size: 1.75rem; }
+.scale-1-5 .text-4xl { font-size: 2rem; }
+.scale-1-5 button { min-height: 52px; padding: 0.75rem 1.125rem; }
+.scale-1-5 .med-card { padding: 1.125rem; }
+.scale-1-5 .p-3 { padding: 1rem; }
+.scale-1-5 .p-4 { padding: 1.125rem; }
+.scale-1-5 .p-5 { padding: 1.25rem; }
+.scale-1-5 .p-6 { padding: 1.375rem; }
+
+/* Scale 2x - Largest text */
+.scale-2 .text-xs { font-size: 1rem; }
+.scale-2 .text-sm { font-size: 1.125rem; }
+.scale-2 .text-base { font-size: 1.25rem; }
+.scale-2 .text-lg { font-size: 1.375rem; }
+.scale-2 .text-xl { font-size: 1.5rem; }
+.scale-2 .text-2xl { font-size: 1.75rem; }
+.scale-2 .text-3xl { font-size: 2rem; }
+.scale-2 .text-4xl { font-size: 2.25rem; }
+.scale-2 button { min-height: 60px; padding: 1rem 1.5rem; }
+.scale-2 .med-card { padding: 1.5rem; }
+.scale-2 .p-3 { padding: 1.25rem; }
+.scale-2 .p-4 { padding: 1.5rem; }
+.scale-2 .p-5 { padding: 1.625rem; }
+.scale-2 .p-6 { padding: 1.75rem; }
+
+/* Title scaling - keep fixed size regardless of app scale */
+.sidebar-brand h1 { 
+  font-size: 1.5rem !important; 
+}
+.sidebar-brand span {
+  font-size: 1.125rem !important;
+}
+.sidebar-brand button {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.3); } 50% { box-shadow: 0 0 0 12px rgba(22,163,74,0); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+.animate-fadeInUp { animation: fadeInUp 0.4s ease-out both; }
+.animate-fadeInUp-delay { animation: fadeInUp 0.4s ease-out 0.1s both; }
+.animate-fadeInUp-delay2 { animation: fadeInUp 0.4s ease-out 0.2s both; }
+.animate-pulseGlow { animation: pulseGlow 2s infinite; }
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+
+/* ============================================================
+   DESKTOP HOVER ENHANCEMENTS
+   ============================================================ */
+@media (min-width: 1024px) {
+  @media (hover: hover) {
+    .hover-lift { transition: transform 0.2s, box-shadow 0.2s; }
+    .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+  }
+}
