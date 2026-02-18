@@ -1,12 +1,12 @@
-# 🩺 Dr. Nudge — AI-Powered Medication Adherence System
+#  Dr. Nudge: AI-Powered Medication Adherence System
 
 **Transform prescription chaos into simple, personalized adherence plans.**
 
 Dr. Nudge is a real-time, full-stack medication management system that combines OCR, AI, drug safety APIs, and behavioral science to help patients understand and remember their medicines.
 
-## ⚠️ IMPORTANT REQUIREMENTS
+## IMPORTANT REQUIREMENTS
 
-**This system requires an OpenAI API key for accurate prescription reading.** The Vision API (GPT-4o) is the primary extraction method and provides significantly better accuracy than pure OCR. Without it, the system falls back to Tesseract OCR which has limited accuracy on handwritten prescriptions (~20-40%).
+**This system works on the OpenAI API key for accurate prescription reading.** The Vision API (GPT-4o) is the primary extraction method and provides significantly better accuracy than pure OCR. If the vision API does not work, the system falls back to Tesseract OCR which has limited accuracy on handwritten prescriptions (approximately ~20-40%).
 
 **What you'll need:**
 - ✅ OpenAI API key (required for Vision API - ~$0.01 per image)
@@ -16,14 +16,14 @@ Dr. Nudge is a real-time, full-stack medication management system that combines 
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### 1. Set Up Supabase Database
 1. Create project at [supabase.com](https://supabase.com)
 2. Run `supabase-schema.sql` in SQL Editor
 3. Copy Project URL and API keys
 
-### 2. Configure Environment
+### 2. Environment Configuration
 ```bash
 # Backend
 cd backend
@@ -36,7 +36,7 @@ cp .env.example .env
 # Edit .env and paste your SUPABASE_URL and SUPABASE_ANON_KEY
 ```
 
-### 3. Install & Run
+### 3. Installation and Running
 ```bash
 # Terminal 1: Backend
 cd backend
@@ -49,7 +49,7 @@ npm install
 npm start
 ```
 
-Visit `http://localhost:3000` 🎉
+Go to `http://localhost:3000`
 
 ---
 
@@ -78,7 +78,7 @@ Visit `http://localhost:3000` 🎉
 
 ---
 
-## 📖 Full Documentation
+##  Full Documentation
 
 See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
 - Complete setup instructions
@@ -89,7 +89,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
 
 ---
 
-## 📊 Accuracy & Limitations
+##  Accuracy & Limitations
 
 **Extraction Accuracy:**
 - **Printed prescriptions (clear):** ~85% accuracy with GPT-4 Vision
@@ -112,7 +112,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
 
 ---
 
-## 🔧 Recent Improvements
+##  Recent Improvements
 
 - ✅ Real image preprocessing (Sharp)
 - ✅ Confirmation UI for verification
@@ -124,7 +124,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
 
 ---
 
-## 🧪 Test the Pipeline
+##  Testing the Pipeline
 
 1. Complete onboarding (5 steps)
 2. Scan a prescription image
@@ -134,7 +134,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
 
 ---
 
-## 📊 Database Tables
+##  Database Tables
 
 | Table | Purpose |
 |-------|---------|
@@ -146,7 +146,7 @@ See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 ### Backend (.env)
 ```env
@@ -164,7 +164,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 ---
 
-## 🛠️ Development
+##  Development
 
 ```bash
 # Backend with auto-reload
@@ -179,7 +179,7 @@ npm start
 
 ---
 
-## 🚢 Deployment
+##  Deployment
 
 **Frontend:** Vercel, Netlify  
 **Backend:** Railway, Render, Fly.io  
@@ -187,13 +187,13 @@ npm start
 
 ---
 
-## 📝 License
+##  License
 
 MIT License — see LICENSE file
 
 ---
 
-## 🙏 Credits
+##  References and sources
 
 Built with:
 - [Supabase](https://supabase.com) — Real-time database
@@ -206,10 +206,3 @@ Built with:
 
 ---
 
-## 🐛 Issues?
-
-Check [SETUP-GUIDE.md](./SETUP-GUIDE.md) Troubleshooting section or open an issue.
-
----
-
-**Made with ❤️ for patients and caregivers**
