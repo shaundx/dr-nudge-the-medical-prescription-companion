@@ -53,7 +53,7 @@ Go to `http://localhost:3000`
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **📸 AI-Powered Prescription Reading** — GPT-4 Vision + Tesseract.js OCR fallback
 - **✅ Verification UI** — Manual confirmation and correction of extracted medications
@@ -68,7 +68,7 @@ Go to `http://localhost:3000`
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 **Frontend:** React 18, Tailwind CSS, Framer Motion, Supabase JS Client  
 **Backend:** Node.js, Express, Tesseract.js, OpenAI GPT-4 Vision, Sharp, RxNorm API  
