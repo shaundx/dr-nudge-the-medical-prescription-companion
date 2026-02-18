@@ -1,8 +1,8 @@
-# 🩺 Dr. Nudge — Full-Stack Setup Guide
+#  Dr. Nudge — Full-Stack Setup Guide
 
-## 🎯 What You've Built
 
-**Dr. Nudge** is now a **fully functional real-time medication adherence system** with:
+
+**Dr. Nudge** is a **fully functional real-time medication adherence system** with:
 
 - ✅ **OCR-powered prescription scanning** (Tesseract.js + OpenAI GPT-4)
 - ✅ **Real-time Supabase database** (PostgreSQL with live subscriptions)
@@ -13,7 +13,7 @@
 
 ---
 
-## 🚀 STEP 1: Set Up Supabase Database
+##  STEP 1: Set Up Supabase Database
 
 ### 1.1 Create a Supabase Project
 
@@ -43,7 +43,7 @@
 
 ---
 
-## 🔧 STEP 2: Configure Environment Variables
+##  STEP 2: Configure Environment Variables
 
 ### 2.1 Backend Configuration
 
@@ -79,7 +79,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 ---
 
-## 🏃 STEP 3: Install Dependencies & Run
+##  STEP 3: Install Dependencies & Run
 
 ### 3.1 Backend
 
@@ -89,11 +89,11 @@ npm install
 node server.js
 ```
 
-You should see:
+Output:
 ```
-🩺 Dr. Nudge API v2.0 running on http://localhost:5000
+  Dr. Nudge API v2.0 running on http://localhost:5000
    Health check: http://localhost:5000/api/health
-   Database: Supabase ✅
+   Database: Supabase 
 ```
 
 ### 3.2 Frontend
@@ -110,7 +110,7 @@ The app should open at `http://localhost:3000`
 
 ---
 
-## 🧪 STEP 4: Test the Full Pipeline
+##  STEP 4: Test the Full Pipeline
 
 ### 4.1 Onboarding Flow
 
@@ -121,7 +121,7 @@ The app should open at `http://localhost:3000`
    - Select your routine
    - Choose motivation
    - Click "Let's go!"
-3. **✅ Check Supabase**: Go to **Table Editor → patients** — you should see your new patient row
+3. ** Check Supabase**: Go to **Table Editor → patients** — you should see your new patient row
 
 ### 4.2 Scan a Prescription
 
@@ -134,14 +134,14 @@ The app should open at `http://localhost:3000`
    - 🛡️ Safety check
    - ✨ Nudge generation
 4. Review the results and click **"Add to my medicines"**
-5. **✅ Check Supabase**: Go to **Table Editor → medications** — your drug should be there
+5. ** Check Supabase**: Go to **Table Editor → medications** — your drug should be there
 
 ### 4.3 Track Medications
 
 1. Click **"My Meds"** tab
 2. You should see the medication from the scan
 3. Click **"I took it"** — the button should change to a checkmark
-4. **✅ Check Supabase**: The `taken_today` field should now be `true` in the medications table
+4. ** Check Supabase**: The `taken_today` field should now be `true` in the medications table
 
 ### 4.4 Safety Alerts
 
@@ -161,7 +161,7 @@ The app should open at `http://localhost:3000`
 
 ---
 
-## 📊 What's in the Database
+##  What's in the Database
 
 ### Tables Created
 
@@ -182,7 +182,7 @@ Any change made (even from another device) will instantly reflect in the UI.
 
 ---
 
-## 🔥 Key Features Now Working
+##  Key Features Now Working
 
 ### 1. OCR → AI Pipeline
 - Upload prescription image
@@ -216,7 +216,7 @@ Any change made (even from another device) will instantly reflect in the UI.
 
 ---
 
-## 🛠️ Architecture Overview
+##  Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -258,11 +258,11 @@ Any change made (even from another device) will instantly reflect in the UI.
 
 ---
 
-## 🎨 Design System
+##  Design System
 
 ### Colors
-- **Brand**: `#1A1A1A` (deep charcoal)
-- **Surface**: `#F7F7F5` (warm off-white)
+- **Brand**: `#1A1A1A` 
+- **Surface**: `#F7F7F5` 
 - **Safety RED**: `#DC2626`
 - **Safety YELLOW**: `#F59E0B`
 - **Safety GREEN**: `#16A34A`
@@ -278,10 +278,10 @@ Any change made (even from another device) will instantly reflect in the UI.
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Backend won't start
-- **Error**: `Database: Supabase ⚠️ not configured`
+- **Error**: `Database: Supabase  not configured`
 - **Fix**: Make sure you filled in `SUPABASE_URL` and `SUPABASE_SERVICE_KEY` in `backend/.env`
 
 ### Frontend shows "Missing Supabase config"
@@ -338,9 +338,9 @@ Any change made (even from another device) will instantly reflect in the UI.
 
 ```
 PROBLEM-2/
-├── supabase-schema.sql          ← Run this in Supabase SQL Editor
+├── supabase-schema.sql          
 ├── backend/
-│   ├── .env                     ← Your Supabase + OpenAI keys
+│   ├── .env                     ← Supabase + OpenAI keys
 │   ├── .env.example
 │   ├── server.js                ← Express API with Supabase
 │   ├── package.json
@@ -350,7 +350,7 @@ PROBLEM-2/
 │       ├── nudgeService.js
 │       └── llmService.js
 └── frontend/
-    ├── .env                     ← Your Supabase keys
+    ├── .env                     ← Supabase keys
     ├── .env.example
     ├── package.json
     ├── tailwind.config.js
@@ -378,7 +378,7 @@ PROBLEM-2/
 
 ---
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 - [ ] Supabase project created
 - [ ] SQL schema executed successfully
@@ -395,9 +395,7 @@ PROBLEM-2/
 
 ---
 
-## 🎉 Congratulations!
-
-You now have a **production-ready medication adherence system** with:
+## Final Features
 
 - Real database persistence (Supabase PostgreSQL)
 - Live real-time updates (WebSocket subscriptions)
@@ -405,5 +403,3 @@ You now have a **production-ready medication adherence system** with:
 - Drug safety checking (RxNorm + OpenFDA)
 - Behavioral nudges (EAST Framework)
 - Fully responsive UI (Mobile → Desktop)
-
-**All the mock data is gone** — everything is now **real-time and fully functional**! 🚀
