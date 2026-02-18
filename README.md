@@ -3,6 +3,7 @@ Transform prescription chaos into simple, personalized adherence plans.
 
 Dr. Nudge is a real-time, full-stack medication management system that combines OCR, AI, drug safety APIs, and behavioral science to help patients understand and remember their medicines.
 
+[Submitted for National KRUU Grasp AI Grassroots Challenge. Winners at 2nd Runner Up/Third Place, with 20,000/- rupees cash price ]
 ---
 
 ## IMPORTANT REQUIREMENTS
