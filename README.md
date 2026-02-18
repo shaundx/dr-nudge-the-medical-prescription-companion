@@ -9,7 +9,7 @@ Dr. Nudge is a real-time, full-stack medication management system that combines 
 
 This system works on the OpenAI API key for accurate prescription reading. The Vision API (GPT-4o) is the primary extraction method and provides significantly better accuracy than pure OCR. If the vision API does not work, the system falls back to Tesseract OCR which has limited accuracy on handwritten prescriptions (approximately ~20-40%).
 
-What you'll need:
+Requirements:
 
 ✅ OpenAI API key (required for Vision API - ~$0.01 per image)  
 ✅ Supabase account (free tier available)  
@@ -68,18 +68,18 @@ Go to http://localhost:3000
 ![Sharp](https://img.shields.io/badge/Sharp-99CC00?style=for-the-badge)
 ![Supabase](https://img.shields.io/badge/Supabase_Realtime-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![RxNorm](https://img.shields.io/badge/RxNorm_API-005EB8?style=for-the-badge)
-![OpenFDA](https://img.shields.io/badge/OpenFDA_API-0033A0?style=for-the-badge)
 
-AI-Powered Prescription Reading — GPT-4 Vision + Tesseract.js OCR fallback  
-Verification UI — Manual confirmation and correction of extracted medications  
-Smart Nudge Generation — AI-generated behavioral nudges with readability checking (Grade 8 target)  
-Enhanced Drug Safety — RxNorm + OpenFDA + food interactions + age-based warnings + dosage alerts  
-Real-Time Sync — Supabase Realtime subscriptions  
-Responsive Design — Mobile → Tablet → Desktop adaptive layout  
-Accessibility — Elderly mode, text-to-speech, large fonts  
-Image Preprocessing — Sharp library for contrast enhancement and optimization  
-Plain Language Validation — Flesch-Kincaid Grade Level checking  
-Full CRUD — Edit, update, and delete medications  
+
+<b>AI-Powered Prescription Reading:</b> GPT-4 Vision + Tesseract.js OCR fallback  
+<b>Verification UI:</b> Manual confirmation and correction of extracted medications  
+<b>Smart Nudge Generation:</b> AI-generated behavioral nudges with readability checking (Grade 8 target)  
+<b>Enhanced Drug Safety:</b> RxNorm + OpenFDA + food interactions + age-based warnings + dosage alerts  
+<b>Real-Time Sync:</b> Supabase Realtime subscriptions  
+<b>Responsive Design:</b> Mobile → Tablet → Desktop adaptive layout  
+<b>Accessibility:</b> Elderly mode, text-to-speech, large fonts  
+<b>Image Preprocessing:</b> Sharp library for contrast enhancement and optimization  
+<b>Plain Language Validation:</b> Flesch-Kincaid Grade Level checking  
+<b>Full CRUD:</b> Edit, update, and delete medications  
 
 ---
 
@@ -110,10 +110,9 @@ Supabase (PostgreSQL + Realtime)
 
 ### APIs
 ![RxNorm](https://img.shields.io/badge/RxNorm-005EB8?style=for-the-badge)
-![OpenFDA](https://img.shields.io/badge/OpenFDA-0033A0?style=for-the-badge)
 ![OpenAI](https://img.shields.io/badge/OpenAI_API-412991?style=for-the-badge&logo=openai&logoColor=white)
 
-RxNorm (drug validation), OpenFDA (interactions), OpenAI GPT-4o (Vision + text generation)
+RxNorm, OpenAI, Model GPT-4o
 
 ---
 
@@ -144,13 +143,13 @@ Database: Supabase
 
 Built with:
 
-Supabase — Real-time database  
-RxNorm — Drug interaction data  
-OpenFDA — FDA drug safety database  
-Tesseract.js — OCR engine  
-OpenAI — GPT-4 for drug extraction  
-Tailwind CSS — UI framework  
-Framer Motion — Animations  
+Supabase for Real-time database  
+RxNorm for Drug interaction data  
+OpenFDA for FDA drug safety database  
+Tesseract.js for OCR engine  
+OpenAI for GPT-4 for drug extraction  
+Tailwind CSS for UI framework  
+Framer Motion for Animations  
 
 ---
 
