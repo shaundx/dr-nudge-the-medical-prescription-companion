@@ -1,208 +1,159 @@
-#  Dr. Nudge: AI-Powered Medication Adherence System
-
-**Transform prescription chaos into simple, personalized adherence plans.**
+# Dr. Nudge: AI-Powered Medication Adherence System  
+Transform prescription chaos into simple, personalized adherence plans.
 
 Dr. Nudge is a real-time, full-stack medication management system that combines OCR, AI, drug safety APIs, and behavioral science to help patients understand and remember their medicines.
 
+---
+
 ## IMPORTANT REQUIREMENTS
 
-**This system works on the OpenAI API key for accurate prescription reading.** The Vision API (GPT-4o) is the primary extraction method and provides significantly better accuracy than pure OCR. If the vision API does not work, the system falls back to Tesseract OCR which has limited accuracy on handwritten prescriptions (approximately ~20-40%).
+This system works on the OpenAI API key for accurate prescription reading. The Vision API (GPT-4o) is the primary extraction method and provides significantly better accuracy than pure OCR. If the vision API does not work, the system falls back to Tesseract OCR which has limited accuracy on handwritten prescriptions (approximately ~20-40%).
 
-**What you'll need:**
-- ✅ OpenAI API key (required for Vision API - ~$0.01 per image)
-- ✅ Supabase account (free tier available)
-- ✅ Good quality prescription images (clear, well-lit, flat)
-- ✅ Internet connection (for API calls)
+What you'll need:
+
+✅ OpenAI API key (required for Vision API - ~$0.01 per image)  
+✅ Supabase account (free tier available)  
+✅ Good quality prescription images (clear, well-lit, flat)  
+✅ Internet connection (for API calls)
 
 ---
 
-##  Quick Start
+## Quick Start
 
 ### 1. Set Up Supabase Database
-1. Create project at [supabase.com](https://supabase.com)
-2. Run `supabase-schema.sql` in SQL Editor
-3. Copy Project URL and API keys
+Create project at supabase.com  
+Run `supabase-schema.sql` in SQL Editor  
+Copy Project URL and API keys  
 
 ### 2. Environment Configuration
+
+#### Backend
 ```bash
-# Backend
 cd backend
 cp .env.example .env
 # Edit .env and paste your SUPABASE_URL and SUPABASE_SERVICE_KEY
+```
 
-# Frontend
+#### Frontend
+```bash
 cd ../frontend
 cp .env.example .env
 # Edit .env and paste your SUPABASE_URL and SUPABASE_ANON_KEY
 ```
 
 ### 3. Installation and Running
+
+#### Terminal 1: Backend
 ```bash
-# Terminal 1: Backend
 cd backend
 npm install
 node server.js
+```
 
-# Terminal 2: Frontend
+#### Terminal 2: Frontend
+```bash
 cd frontend
 npm install
 npm start
 ```
 
-Go to `http://localhost:3000`
+Go to http://localhost:3000
 
 ---
 
-##  Features
+## Features
 
-- **📸 AI-Powered Prescription Reading** — GPT-4 Vision + Tesseract.js OCR fallback
-- **✅ Verification UI** — Manual confirmation and correction of extracted medications
-- **💊 Smart Nudge Generation** — AI-generated behavioral nudges with readability checking (Grade 8 target)
-- **🛡️ Enhanced Drug Safety** — RxNorm + OpenFDA + food interactions + age-based warnings + dosage alerts
-- **📊 Real-Time Sync** — Supabase Realtime subscriptions
-- **📱 Responsive Design** — Mobile → Tablet → Desktop adaptive layout
-- **♿ Accessibility** — Elderly mode, text-to-speech, large fonts
-- **🖼️ Image Preprocessing** — Sharp library for contrast enhancement, noise reduction, and optimization
-- **📝 Plain Language Validation** — Flesch-Kincaid Grade Level checking, jargon detection
-- **✏️ Full CRUD** — Edit, update, and delete medications with complete customization
+![OpenAI](https://img.shields.io/badge/OpenAI_GPT--4o_Vision-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Tesseract](https://img.shields.io/badge/Tesseract.js-4A90E2?style=for-the-badge&logo=tesseract&logoColor=white)
+![Sharp](https://img.shields.io/badge/Sharp-99CC00?style=for-the-badge)
+![Supabase](https://img.shields.io/badge/Supabase_Realtime-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![RxNorm](https://img.shields.io/badge/RxNorm_API-005EB8?style=for-the-badge)
+![OpenFDA](https://img.shields.io/badge/OpenFDA_API-0033A0?style=for-the-badge)
 
----
-
-##  Tech Stack
-
-**Frontend:** React 18, Tailwind CSS, Framer Motion, Supabase JS Client  
-**Backend:** Node.js, Express, Tesseract.js, OpenAI GPT-4 Vision, Sharp, RxNorm API  
-**Database:** Supabase (PostgreSQL + Realtime)  
-**APIs:** RxNorm (drug validation), OpenFDA (interactions), OpenAI GPT-4o (Vision + text generation)  
-**Image Processing:** Sharp (preprocessing, enhancement, optimization)
+AI-Powered Prescription Reading — GPT-4 Vision + Tesseract.js OCR fallback  
+Verification UI — Manual confirmation and correction of extracted medications  
+Smart Nudge Generation — AI-generated behavioral nudges with readability checking (Grade 8 target)  
+Enhanced Drug Safety — RxNorm + OpenFDA + food interactions + age-based warnings + dosage alerts  
+Real-Time Sync — Supabase Realtime subscriptions  
+Responsive Design — Mobile → Tablet → Desktop adaptive layout  
+Accessibility — Elderly mode, text-to-speech, large fonts  
+Image Preprocessing — Sharp library for contrast enhancement and optimization  
+Plain Language Validation — Flesch-Kincaid Grade Level checking  
+Full CRUD — Edit, update, and delete medications  
 
 ---
 
-##  Full Documentation
+## Tech Stack
 
-See [SETUP-GUIDE.md](./SETUP-GUIDE.md) for:
-- Complete setup instructions
-- Database schema details
-- API endpoint documentation
-- Troubleshooting guide
-- Architecture overview
+### Frontend
+![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase_JS_Client-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
----
+React 18, Tailwind CSS, Framer Motion, Supabase JS Client
 
-##  Accuracy & Limitations
+### Backend
+![NodeJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI_GPT--4o-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Tesseract](https://img.shields.io/badge/Tesseract.js-4A90E2?style=for-the-badge)
+![Sharp](https://img.shields.io/badge/Sharp_Image_Processing-99CC00?style=for-the-badge)
 
-**Extraction Accuracy:**
-- **Printed prescriptions (clear):** ~85% accuracy with GPT-4 Vision
-- **Handwritten prescriptions (neat):** ~60-70% accuracy
-- **Poor handwriting/lighting:** ~20-40% accuracy
-- **Without OpenAI API key:** Tesseract-only fallback (~20-40%)
+Node.js, Express, Tesseract.js, OpenAI GPT-4 Vision, Sharp, RxNorm API
 
-**Best Practices:**
-- ✅ Use good lighting and a flat surface
-- ✅ Ensure prescription is in focus
-- ✅ Take photos straight-on (not at an angle)
-- ✅ Always verify extracted data in confirmation modal
+### Database
+![Supabase](https://img.shields.io/badge/Supabase_PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
-**Known Limitations:**
-- OCR: English + Hindi only (not 7 languages)
-- Drug interactions: Database may not be comprehensive
-- Behavioral nudges: AI-generated, not clinically validated
-- Requires internet connection
-- Vision API cost: ~$0.01 per image
+Supabase (PostgreSQL + Realtime)
 
----
+### APIs
+![RxNorm](https://img.shields.io/badge/RxNorm-005EB8?style=for-the-badge)
+![OpenFDA](https://img.shields.io/badge/OpenFDA-0033A0?style=for-the-badge)
+![OpenAI](https://img.shields.io/badge/OpenAI_API-412991?style=for-the-badge&logo=openai&logoColor=white)
 
-##  Recent Improvements
-
-- ✅ Real image preprocessing (Sharp)
-- ✅ Confirmation UI for verification
-- ✅ Readability checking (Flesch-Kincaid)
-- ✅ Enhanced safety (food/age/dosage warnings)
-- ✅ Failed extraction feedback
-- ✅ Full CRUD operations
-- ✅ Jargon detection & simplification
+RxNorm (drug validation), OpenFDA (interactions), OpenAI GPT-4o (Vision + text generation)
 
 ---
 
-##  Testing the Pipeline
+## Deployment
 
-1. Complete onboarding (5 steps)
-2. Scan a prescription image
-3. Watch the AI pipeline: OCR → Extract → Safety Check → Nudge Generation
-4. Add medications and track adherence
-5. Open in multiple tabs to see real-time sync
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)
+![Render](https://img.shields.io/badge/Render-0099E5?style=for-the-badge&logo=render&logoColor=white)
+![Fly.io](https://img.shields.io/badge/Fly.io-8C6FF7?style=for-the-badge)
+![Supabase](https://img.shields.io/badge/Supabase_DB-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
----
-
-##  Database Tables
-
-| Table | Purpose |
-|-------|---------|
-| `patients` | User profiles, onboarding data |
-| `medications` | Prescribed drugs + nudge cards |
-| `interactions` | Drug interaction warnings |
-| `medication_logs` | Dose history for adherence tracking |
-| `caregivers` | Family members for notifications |
+Frontend: Vercel, Netlify  
+Backend: Railway, Render, Fly.io  
+Database: Supabase  
 
 ---
 
-##  Environment Variables
+## References
 
-### Backend (.env)
-```env
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_KEY=eyJhbGc...
-OPENAI_API_KEY=sk-...  # Optional, has fallbacks
-```
-
-### Frontend (.env)
-```env
-REACT_APP_SUPABASE_URL=https://your-project.supabase.co
-REACT_APP_SUPABASE_ANON_KEY=eyJhbGc...
-REACT_APP_API_URL=http://localhost:5000/api
-```
-
----
-
-##  Development
-
-```bash
-# Backend with auto-reload
-cd backend
-npm install -g nodemon
-nodemon server.js
-
-# Frontend with hot-reload
-cd frontend
-npm start
-```
-
----
-
-##  Deployment
-
-**Frontend:** Vercel, Netlify  
-**Backend:** Railway, Render, Fly.io  
-**Database:** Already on Supabase (production-ready)
-
----
-
-##  License
-
-MIT License — see LICENSE file
-
----
-
-##  References and sources
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![RxNorm](https://img.shields.io/badge/RxNorm-005EB8?style=for-the-badge)
+![OpenFDA](https://img.shields.io/badge/OpenFDA-0033A0?style=for-the-badge)
+![Tesseract](https://img.shields.io/badge/Tesseract.js-4A90E2?style=for-the-badge)
+![OpenAI](https://img.shields.io/badge/OpenAI_GPT--4-412991?style=for-the-badge&logo=openai&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
 
 Built with:
-- [Supabase](https://supabase.com) — Real-time database
-- [RxNorm](https://www.nlm.nih.gov/research/umls/rxnorm/) — Drug interaction data
-- [OpenFDA](https://open.fda.gov/) — FDA drug safety database
-- [Tesseract.js](https://tesseract.projectnaptha.com/) — OCR engine
-- [OpenAI](https://openai.com) — GPT-4 for drug extraction
-- [Tailwind CSS](https://tailwindcss.com) — UI framework
-- [Framer Motion](https://www.framer.com/motion/) — Animations
+
+Supabase — Real-time database  
+RxNorm — Drug interaction data  
+OpenFDA — FDA drug safety database  
+Tesseract.js — OCR engine  
+OpenAI — GPT-4 for drug extraction  
+Tailwind CSS — UI framework  
+Framer Motion — Animations  
 
 ---
 
+## License
+
+MIT License — see LICENSE file
