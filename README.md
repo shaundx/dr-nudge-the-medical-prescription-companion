@@ -168,4 +168,4 @@ Framer Motion for Animations
 MIT License — see LICENSE file
 
 ## Team mates:
-@alv1n25 @anson matt
+@alv1n25 @ansonmatt
